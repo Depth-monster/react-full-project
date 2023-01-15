@@ -12,18 +12,20 @@ function App() {
   const [posts, setPosts] = useState([
     {
       id: 1,
-      title: "JS first tutorial",
-      body: "Description of the theme",
+      title: "Delphi and Rust",
+      body: "Similar sides of languages",
+    
     },
     {
       id: 2,
-      title: "JS second tutorial",
-      body: "Description of the theme",
+      title: "Go and Python",
+      body: "Aaaa which one is more dynamic",
     },
     {
       id: 3,
-      title: "JS third tutorial",
-      body: "Description of the theme",
+      title: "ABC PASCAL and JS",
+      body: "Comparing two technologies",
+      
     },
     // {
     //   id: 4,
@@ -37,6 +39,14 @@ function App() {
     // },
   ]);
 
+  const [selectedSort, setSelectedSort] = useState("");
+
+  const sortPosts = (sort) => {
+    setSelectedSort(sort);
+    setPosts([...posts].sort((a,b)=>a[sort].localeCompare(b[sort])))
+   
+  };
+
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
   };
@@ -49,15 +59,15 @@ function App() {
     <div className="App">
       <PostForm createPost={createPost} />
       <div>
-
         <MySelect
+          value={selectedSort}
+          onChange={sortPosts}
           defaultValue="Sort by"
           options={[
-            { value: "title", name: "Name" },
+            { value: "title", name: "Title" },
             { value: "body", name: "Description" },
           ]}
         />
-
       </div>
       {posts.length !== 0 ? (
         <PostList posts={posts} removePost={removePost} title="JS posts" />

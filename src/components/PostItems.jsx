@@ -2,7 +2,7 @@ import React from 'react';
 import MyButton from '../UI/button/MyButton';
 
 const PostItems = (props) => {
-    debugger
+   // debugger
     return (
         <div className="post">
         <div className="post__content">
