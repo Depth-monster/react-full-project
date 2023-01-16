@@ -38,7 +38,7 @@ function App() {
     // },
   ]);
 
-  const [filter, setFilter] = useState({ query:"", sort:"" });
+  const [filter, setFilter] = useState({ sort: "", query: "" });
 
   const sortedPosts = useMemo(() => {
     console.log("Use memo works");
@@ -50,10 +50,10 @@ function App() {
     return posts;
   }, [filter.sort, posts]);
 
-  const sortedSearchedPosts = useMemo(() => { 
-    return sortedPosts.filter(post =>
+  const sortedSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((post) =>
       post.title.toLowerCase().includes(filter.query.toLowerCase())
-    );
+    ); //search by titles
   }, [filter.query, sortedPosts]);
 
   const createPost = (newPost) => {
@@ -69,15 +69,11 @@ function App() {
       <PostForm createPost={createPost} />
       <PostFilter filter={filter} setFilter={setFilter} />
 
-      {sortedSearchedPosts.length ? (
-        <PostList
-          posts={sortedSearchedPosts}
-          removePost={removePost}
-          title="JS posts"
-        />
-      ) : (
-        <h1 style={{ textAlign: "center" }}>Post something!</h1>
-      )}
+      <PostList
+        posts={sortedSearchedPosts}
+        removePost={removePost}
+        title="JS posts"
+      />
     </div>
   );
 }
