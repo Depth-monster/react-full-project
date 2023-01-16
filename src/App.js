@@ -63,7 +63,7 @@ function App() {
   const removePost = (post) => {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
-///why it doesn't work
+
   return (
     <div className="App">
       <PostForm createPost={createPost} />
