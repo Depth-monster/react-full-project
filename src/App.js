@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Counter from "./components/Counter";
 import PostFilter from "./components/PostFilter";
 import PostForm from "./components/PostForm";
@@ -9,7 +9,8 @@ import MyButton from "./UI/button/MyButton";
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 import MyModal from "./UI/MyModal/MyModal";
-import {usePosts} from './hooks/usePosts'
+import { usePosts } from "./hooks/usePosts";
+import axios from "axios";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -28,16 +29,26 @@ function App() {
     //   title: "ABC PASCAL and JS",
     //   body: "Comparing two technologies",
     // },
-   
   ]);
 
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const [modal, setModal] = useState(false);
-  const sortedSearchedPosts = usePosts(posts, filter.sort, filter.query)
-  
+  const sortedSearchedPosts = usePosts(posts, filter.sort, filter.query);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  async function fetchPosts() {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    setPosts(response.data);
+  }
+
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
-    setModal(false)
+    setModal(false);
   };
 
   const removePost = (post) => {
@@ -46,8 +57,9 @@ function App() {
 
   return (
     <div className="App">
-
-      <MyButton style={{marginTop:30}} onClick={() => setModal(true)}>Add post</MyButton>
+      <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
+        Add post
+      </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
         <PostForm createPost={createPost} />
       </MyModal>
