@@ -25,3 +25,4 @@ export const usePosts = (post, sort, query) => {
   }, [query, sortedPosts]);
   return sortedSearchedPosts; // and finally it returns sorted and searched array
 };
+///
