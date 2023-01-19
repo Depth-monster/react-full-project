@@ -19,3 +19,18 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.post-enter {
+  transform: translateY(-350px);
+}
+.post-enter-active {
+  transform: translateY(0px);
+  transition: all 500ms ease-in;
+}
+.post-exit {
+  opacity: 1;
+}
+.post-exit-active {
+  transform: translateY(350px);
+  transition: all 500ms ease-in;
+}

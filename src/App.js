@@ -8,56 +8,36 @@ import "./styles/App.css";
 import MyButton from "./UI/button/MyButton";
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
+import MyModal from "./UI/MyModal/MyModal";
+import {usePosts} from './hooks/usePosts'
 
 function App() {
   const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Delphi and Rust",
-      body: "Similar sides of languages",
-    },
-    {
-      id: 2,
-      title: "Go and Python",
-      body: "Aaaa which one is more dynamic",
-    },
-    {
-      id: 3,
-      title: "ABC PASCAL and JS",
-      body: "Comparing two technologies",
-    },
     // {
-    //   id: 4,
-    //   title: "JS fourth tutorial",
-    //   body: "Description of the theme",
+    //   id: 1,
+    //   title: "Delphi and Rust",
+    //   body: "Similar sides of languages",
     // },
     // {
-    //   id: 5,
-    //   title: "JS fifth tutorial",
-    //   body: "Description of the theme",
+    //   id: 2,
+    //   title: "Go and Python",
+    //   body: "Aaaa which one is more dynamic",
     // },
+    // {
+    //   id: 3,
+    //   title: "ABC PASCAL and JS",
+    //   body: "Comparing two technologies",
+    // },
+   
   ]);
 
   const [filter, setFilter] = useState({ sort: "", query: "" });
-
-  const sortedPosts = useMemo(() => {
-    console.log("Use memo works");
-    if (filter.sort) {
-      return [...posts].sort((a, b) =>
-        a[filter.sort].localeCompare(b[filter.sort])
-      );
-    }
-    return posts;
-  }, [filter.sort, posts]);
-
-  const sortedSearchedPosts = useMemo(() => {
-    return sortedPosts.filter((post) =>
-      post.title.toLowerCase().includes(filter.query.toLowerCase())
-    ); //search by titles
-  }, [filter.query, sortedPosts]);
-
+  const [modal, setModal] = useState(false);
+  const sortedSearchedPosts = usePosts(posts, filter.sort, filter.query)
+  
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
+    setModal(false)
   };
 
   const removePost = (post) => {
@@ -66,7 +46,13 @@ function App() {
 
   return (
     <div className="App">
-      <PostForm createPost={createPost} />
+
+      <MyButton style={{marginTop:30}} onClick={() => setModal(true)}>Add post</MyButton>
+      <MyModal visible={modal} setVisible={setModal}>
+        <PostForm createPost={createPost} />
+      </MyModal>
+      <hr style={{ margin: "10px 0" }} />
+
       <PostFilter filter={filter} setFilter={setFilter} />
 
       <PostList
