@@ -33,6 +33,11 @@ function App() {
     //   title: "ABC PASCAL and JS",
     //   body: "Comparing two technologies",
     // },
+    {
+    //   id: 4,
+    //   title: "ABC PASCAL and JS",
+    //   body: "Comparing two technologies",
+    // },
   ]);
 
   const [filter, setFilter] = useState({ sort: "", query: "" });
