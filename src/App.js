@@ -11,6 +11,9 @@ import MySelect from "./UI/select/MySelect";
 import MyModal from "./UI/MyModal/MyModal";
 import { usePosts } from "./hooks/usePosts";
 import axios from "axios";
+import PostService from "./API/PostService";
+import Loader from "./UI/Loader/Loader";
+import { useFetching } from "./hooks/useFetching";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -35,16 +38,21 @@ function App() {
   const [modal, setModal] = useState(false);
   const sortedSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
+  const [fetchPosts, isPostLoading, errorMessage] = useFetching(async () => {
+    const posts = await PostService.getAll();
+    setPosts(posts);
+  });
+
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  async function fetchPosts() {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    setPosts(response.data);
-  }
+  // async function fetchPosts() {
+  //   setIsPostLoading(true);
+  //   const posts = await PostService.getAll();
+  //   setPosts(posts);
+  //   setIsPostLoading(false);
+  // }
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -66,12 +74,18 @@ function App() {
       <hr style={{ margin: "10px 0" }} />
 
       <PostFilter filter={filter} setFilter={setFilter} />
-
-      <PostList
-        posts={sortedSearchedPosts}
-        removePost={removePost}
-        title="JS posts"
-      />
+     
+      {errorMessage && <h1> {errorMessage} detected in try</h1>}
+      
+      {isPostLoading ? (
+        <Loader />
+      ) : (
+        <PostList
+          posts={sortedSearchedPosts}
+          removePost={removePost}
+          title="JS posts"
+        />
+      )}
     </div>
   );
 }
