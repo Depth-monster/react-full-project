@@ -10,7 +10,10 @@
 }
 .App {
   width: 800px;
+  
 }
+
+
 .post {
   display: flex;
   padding: 15px;
@@ -37,15 +40,53 @@
 .pagination__wrapper{
 margin-top: 30px;
 display: flex;
+justify-content: center;
 }
 
 .pagination{
-padding:10px;
+/* padding:10px;
 border: 1px solid teal;
-cursor: pointer;
+cursor: pointer; */
+
+background-color: teal;
+  /* round button corners */
+  border-radius: 50%;
+  /* add some padding and a font for the button */
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  /* set button width and height */
+  width: 40px;
+  height: 40px;
+  /* center the button text */
+  text-align: center;
+  /* add some spacing between buttons */
+  margin-right: 10px;
+  /* change cursor to pointer when hovering over button */
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .pagination__current{
 border:2px solid orange;
-font-weight:bold
+font-weight:bold;
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.navbar {
+  
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0rem 1rem 1rem;
+}
+
+.navbar__links {
+  display: flex;
+}
+
+.navbar__links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
 }
