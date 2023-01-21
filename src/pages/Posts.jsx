@@ -31,10 +31,11 @@ function Posts() {
     }
   );
 
-  console.log(totalPages);
+  //console.log(totalPages);
 
   useEffect(() => {
     fetchPosts(limit, page);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // async function fetchPosts() {

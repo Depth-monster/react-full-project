@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
+
 
 const Error = () => {
-    return (
-        <div>
-            FUUUUUUUUUUUUUUUUUUUUUUUUUUUUCKKKKKKK  YOUUUUUUUUUUUUUUUUUUUUUU
-        </div>
-    );
+
+  return (
+    <div>FUUUUUUUUUUUUUUUUUUUUUUUUUUUUCKKKKKKK YOUUUUUUUUUUUUUUUUUUUUUU</div>
+  );
 };
 
 export default Error;

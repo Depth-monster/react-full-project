@@ -3,17 +3,17 @@ import cl from "./Loader.module.css";
 
 const Loader = () => {
   return (
-    <div class={cl.center}>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
-  <div class={cl.wave}></div>
+    <div className={cl.center}>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
+  <div className={cl.wave}></div>
 </div>
   );
 };
