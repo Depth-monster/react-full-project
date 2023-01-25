@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-full-project/static/css/main.fe4048e1.css",
+    "main.js": "/react-full-project/static/js/main.1bd1ceba.js",
+    "index.html": "/react-full-project/index.html",
+    "main.fe4048e1.css.map": "/react-full-project/static/css/main.fe4048e1.css.map",
+    "main.1bd1ceba.js.map": "/react-full-project/static/js/main.1bd1ceba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe4048e1.css",
+    "static/js/main.1bd1ceba.js"
+  ]
+}
