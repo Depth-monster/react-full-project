@@ -8,9 +8,14 @@
   display: flex;
   justify-content: center;
 }
-.App {
+/* .App {
   width: 800px;
   
+} */
+@media only screen and (max-width: 600px) {
+  .App {
+    width: 90vw; /* change the width to 90% of the viewport */
+  }
 }
 
 
@@ -73,6 +78,7 @@ border:2px solid orange;
 font-weight:bold;
 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
+
 .navbar {
   
   display: flex;
@@ -91,9 +97,13 @@ box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   margin-right: 1rem;
 }
-.navbar__quit{
-  float:left}
-
+/* .navbar__quit{
+  float:left} */
+  @media only screen and (max-width: 600px) {
+    .navbar__quit{
+      display: none; /* hide the quit button */
+    }
+  }
 .post__btns{
   display: flex;
 }

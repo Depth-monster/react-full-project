@@ -31,3 +31,4 @@ function App() {
 }
 
 export default App;
+//only one dynamic pagination is required
