@@ -17,10 +17,11 @@
 .post {
   display: flex;
   padding: 15px;
-  border: 2px solid teal;
+  border: 2px solid rgb(172, 39, 46);
   margin-top: 15px;
   justify-content: space-between;
   align-items: center;
+  border-radius: 30%;
 }
 
 .post-enter {
@@ -48,7 +49,7 @@ justify-content: center;
 border: 1px solid teal;
 cursor: pointer; */
 
-background-color: teal;
+background-color: rgb(100, 46, 49);
   /* round button corners */
   border-radius: 50%;
   /* add some padding and a font for the button */
@@ -90,6 +91,8 @@ box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   margin-right: 1rem;
 }
+.navbar__quit{
+  float:left}
 
 .post__btns{
   display: flex;

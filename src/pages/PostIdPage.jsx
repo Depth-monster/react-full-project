@@ -18,7 +18,7 @@ const PostIdPage = () => {
   const [fetchCommentToPost, isCommentLoading, errorComment] = useFetching(
     async (id) => {
       const response = await PostService.getComments(id);
-      console.log(response.data);
+    //console.log(response.data);
       setComments(response.data);
     }
   );
