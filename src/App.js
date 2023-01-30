@@ -31,8 +31,8 @@ function App() {
 }
 
 export default App;
-<<<<<<< HEAD
+
 //only one dynamic pagination is required
-=======
+
 //only one dynamic pagination is required
->>>>>>> 189e8b665061b6256a0596982ebef1c1519d478b
+
